@@ -14,4 +14,9 @@ switch (playerSide) do {
         life_actions = life_actions + [player addAction[localize "STR_pAct_RobPerson",life_fnc_robAction,"",0,false,false,"",'
         !isNull cursorObject && player distance cursorObject < 3.5 && isPlayer cursorObject && animationState cursorObject == "Incapacitated" && !(cursorObject getVariable["robbed",FALSE]) ']];
     };
+
+    case west: {
+        //Présenter son insigne
+        life_actions = life_actions + [player addAction["<t color='#1F80C9'>Présenter son insigne</t>",life_fnc_copShowLicense,"",1,false,true,"",' playerSide == west && !isNull cursorTarget && cursorTarget isKindOf "Man" ']];
+    };
 };
