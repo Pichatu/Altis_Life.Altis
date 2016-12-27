@@ -82,6 +82,17 @@ while {player getVariable  "restrained"} do {
             };
         }forEach _turrets;
     };
+
+    if (FETCH_CONST(life_adminlevel) < 3) exitWith {closeDialog 0;};
+        [] spawn {
+            while {dialog} do {
+            closeDialog 0;
+            sleep 0.01;
+        };
+    player setVariable ["Escorting",false,true];
+    detach player;
+    hint format["Pourquoi tu essaie de menotter %1 ? C'est un admin",_target getVariable["realname",name _target]];
+    };
 };
 
 //disableUserInput false;
